@@ -1,12 +1,30 @@
 {
   "title": "주간 SK·GS AIDC 이슈",
-  "context": "SK그룹과 GS그룹의 AI 데이터센터(AIDC) 사업·투자 동향을 매주 정리한다. 독자는 포스코 마케팅 담당자와 사내 공유 대상이며, 각 건마다 포스코(강건재·철강) 관점의 시사점을 한 줄 덧붙인다.",
+  "context": "SK그룹과 GS그룹의 AI 데이터센터(AIDC) 사업·투자 동향과, 이를 움직이는 국내외 빅테크의 투자·제도·기술 변화를 매주 정리한다. 독자는 포스코 마케팅 담당자와 사내 공유 대상이다.",
+  "max_items_per_section": 3,
   "sections": [
-    {"code": "A", "title": "SK그룹 AIDC 사업", "query": "SK Hyper SK텔레콤 SK에코플랜트 SK브로드밴드 SK하이닉스 AI 데이터센터 착공 증설 계약"},
-    {"code": "B", "title": "GS그룹 AIDC 사업", "query": "GS건설 GS에너지 GS칼텍스 GS글로벌 GS 데이터센터 AIDC 사업 진출 투자"},
-    {"code": "C", "title": "투자·M&A·금융", "query": "SK GS 데이터센터 투자 지분 인수 PF 파트너십 합작법인 자금조달"},
-    {"code": "D", "title": "테넌트·기술 파트너", "query": "SK GS 데이터센터 AWS 마이크로소프트 오픈AI 엔비디아 테넌트 GPU 협력"},
-    {"code": "E", "title": "입지·인허가·전력·용수", "query": "SK GS AI 데이터센터 부지 인허가 전력 수전 계통 용수 울산 해남 동해"},
-    {"code": "F", "title": "경쟁·시장 동향", "query": "국내 AIDC 시장 KT 네이버 삼성SDS LG 하이퍼스케일러 공실률 투자 전망"}
+    {"code": "A", "title": "SK그룹 AIDC", "region": "KR",
+     "query_ko": "SK Hyper SK텔레콤 SK에코플랜트 SK브로드밴드 SK하이닉스 AI 데이터센터 착공 증설 계약",
+     "query_en": "SK Group AI data center SK Telecom SK Hynix SK ecoplant"},
+    {"code": "B", "title": "GS그룹 AIDC", "region": "KR",
+     "query_ko": "GS건설 GS에너지 GS칼텍스 GS글로벌 GS 데이터센터 AIDC 사업 진출 투자",
+     "query_en": "GS Group GS E&C GS Energy data center investment"},
+    {"code": "C", "title": "국내 정책·전력·입지", "region": "KR",
+     "query_ko": "AI 데이터센터 전력 수전 계통영향평가 용수 인허가 분산에너지 AI 기본법 지자체 부지",
+     "query_en": "Korea data center power grid policy"},
+    {"code": "D", "title": "해외 빅테크 투자·capex", "region": "US/Global",
+     "query_ko": "마이크로소프트 구글 아마존 메타 오라클 오픈AI 엔비디아 데이터센터 투자 capex",
+     "query_en": "Microsoft Google Amazon Meta Oracle OpenAI Nvidia data center capex investment hyperscaler earnings"},
+    {"code": "E", "title": "해외 제도·기술", "region": "US/EU/Asia",
+     "query_ko": "미국 AI 반도체 수출통제 데이터센터 전력 규제 EU AI Act 액체냉각 800VDC",
+     "query_en": "AI chip export controls data center power regulation EU AI Act liquid cooling 800VDC Johor Singapore moratorium"},
+    {"code": "F", "title": "투자·M&A·금융", "region": "KR/Global",
+     "query_ko": "데이터센터 인수합병 지분 투자 PF 합작법인 자금조달 SK GS",
+     "query_en": "data center M&A financing joint venture private credit infrastructure fund"}
+  ],
+  "big_event_triggers": [
+    "하이퍼스케일러(MS·구글·아마존·메타·오라클)의 연간 capex 가이던스 변경",
+    "미국·EU·한국의 수출통제·전력·AI 관련 제도 확정 또는 시행",
+    "SK·GS 그룹의 단일 AIDC 투자 1조 원 이상 또는 100MW 이상 발표"
   ]
 }
