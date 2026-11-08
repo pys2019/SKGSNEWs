@@ -19,11 +19,11 @@ def main() -> None:
         issue = md.parent.name
         body = markdown.markdown(md.read_text(encoding="utf-8"), extensions=["tables"])
         (out / f"{issue}.html").write_text(
-            HTML.format(title=f"주간 강건재 이슈 {issue}", body=body), encoding="utf-8")
+            HTML.format(title=f"주간 SK·GS AIDC 이슈 {issue}", body=body), encoding="utf-8")
         names.append(issue)
     items = "\n".join(f'<li><a href="issues/{n}.html">{n}</a></li>' for n in sorted(names, reverse=True))
     (ROOT / "docs" / "index.html").write_text(
-        HTML.format(title="주간 강건재 이슈", body=f"<h1>주간 강건재 이슈 (내부용)</h1><ul>{items}</ul>"),
+        HTML.format(title="주간 SK·GS AIDC 이슈", body=f"<h1>주간 SK·GS AIDC 이슈 (내부용)</h1><ul>{items}</ul>"),
         encoding="utf-8")
     print("호수:", len(names))
 

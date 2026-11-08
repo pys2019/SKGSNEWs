@@ -1,11 +1,12 @@
 {
-  "context": "포스코 마케팅 담당자가 SK그룹 데이터센터(SK Hyper, SK에코플랜트)向 강건재(구조용 강재, CFT 무피복, 내화도료, 열연 각형강관) 수주를 추진 중이다.",
+  "title": "주간 SK·GS AIDC 이슈",
+  "context": "SK그룹과 GS그룹의 AI 데이터센터(AIDC) 사업·투자 동향을 매주 정리한다. 독자는 포스코 마케팅 담당자와 사내 공유 대상이며, 각 건마다 포스코(강건재·철강) 관점의 시사점을 한 줄 덧붙인다.",
   "sections": [
-    {"code": "A", "title": "AIDC 발주·착공", "query": "SK Hyper SK에코플랜트 AI 데이터센터 착공 수주 사양서 강재"},
-    {"code": "B", "title": "강재 시황·가격", "query": "열연 후판 가격 철강 시황 수입산 반덤핑 중국 감산"},
-    {"code": "C", "title": "경쟁·대체", "query": "현대제철 동국제강 데이터센터 철골 PC 공법 경쟁"},
-    {"code": "D", "title": "기준·규제", "query": "내화구조 기준 건축법 KDS KCS 개정 신기술 인증 조달"},
-    {"code": "E", "title": "전력·용수 병목", "query": "데이터센터 전력 수전 계통영향평가 용수 허가"},
-    {"code": "F", "title": "포스코그룹 동향", "query": "포스코이앤씨 포스코인터내셔널 포스코 뉴스룸 강건재"}
+    {"code": "A", "title": "SK그룹 AIDC 사업", "query": "SK Hyper SK텔레콤 SK에코플랜트 SK브로드밴드 SK하이닉스 AI 데이터센터 착공 증설 계약"},
+    {"code": "B", "title": "GS그룹 AIDC 사업", "query": "GS건설 GS에너지 GS칼텍스 GS글로벌 GS 데이터센터 AIDC 사업 진출 투자"},
+    {"code": "C", "title": "투자·M&A·금융", "query": "SK GS 데이터센터 투자 지분 인수 PF 파트너십 합작법인 자금조달"},
+    {"code": "D", "title": "테넌트·기술 파트너", "query": "SK GS 데이터센터 AWS 마이크로소프트 오픈AI 엔비디아 테넌트 GPU 협력"},
+    {"code": "E", "title": "입지·인허가·전력·용수", "query": "SK GS AI 데이터센터 부지 인허가 전력 수전 계통 용수 울산 해남 동해"},
+    {"code": "F", "title": "경쟁·시장 동향", "query": "국내 AIDC 시장 KT 네이버 삼성SDS LG 하이퍼스케일러 공실률 투자 전망"}
   ]
 }

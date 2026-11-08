@@ -65,11 +65,11 @@ jobs:
           secure: true
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "${{ github.event_name == 'workflow_dispatch' && '[테스트] ' || '' }}[내부] 주간 강건재 이슈 ${{ needs.build.outputs.issue }}"
+          subject: "${{ github.event_name == 'workflow_dispatch' && '[테스트] ' || '' }}[내부] 주간 SK·GS AIDC 이슈 ${{ needs.build.outputs.issue }}"
           to: ${{ (github.event_name == 'workflow_dispatch' && inputs.test_only) && 'pys2019@gmail.com' || 'yespark@posco.com,pys2019@gmail.com' }}
-          from: 주간 강건재 이슈 <${{ secrets.MAIL_USERNAME }}>
+          from: 주간 SK·GS AIDC 이슈 <${{ secrets.MAIL_USERNAME }}>
           body: |
-            이번 주 강건재 이슈가 올라왔습니다. (내부 공유용)
+            이번 주 SK·GS AIDC 이슈가 올라왔습니다. (내부 공유용)
 
             읽기: https://pys2019.github.io/SKGSNEWs/issues/${{ needs.build.outputs.issue }}.html
             전체 목록: https://pys2019.github.io/SKGSNEWs/
