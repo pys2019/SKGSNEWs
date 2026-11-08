@@ -1,19 +1,21 @@
-# 주간 강건재 이슈 뉴스레터 (GitHub 자동 갱신)
+# 주간 강건재 이슈 뉴스레터
 
-매주 월요일 07:00(KST)에 GitHub Actions가 한 호를 만들어 저장소에 커밋하고 GitHub Pages로 게시한다.
+## 흐름
+1. 매주 월요일 07:00(로컬) Claude Code 예약 작업 `weekly-ganggeonjae-newsletter`가 웹검색으로 한 호를 만든다. PC와 Claude 앱이 켜져 있어야 하며, 꺼져 있으면 다음 실행 때 돌아간다.
+2. 결과를 `issues/YYYY-Www/newsletter.md`에 저장하고 `state/seen.json`을 갱신해 `git push`한다.
+3. push를 받으면 GitHub Actions(`publish-newsletter`)가 `docs/`를 만들어 Pages에 게시하고 링크를 메일로 보낸다. 수신: yespark@posco.com, pys2019@gmail.com
 
 ## 구조
-- `.github/workflows/weekly.yml`: 일요일 22:00 UTC 스케줄 + 수동 실행
-- `scripts/generate.py`: 웹검색으로 수집 → 마크다운 작성 → HTML 변환 → 목차 갱신
-- `config/sections.json`: 섹션 6개와 검색 힌트 (여기를 고치면 다음 호부터 반영)
-- `issues/YYYY-Www/newsletter.md`: 원본 / `docs/`: Pages 게시본 / `state/seen.json`: 중복 방지
+- `config/sections.json`: 섹션 6개와 검색 힌트
+- `scripts/build_site.py`: md → HTML 변환
+- `.github/workflows/weekly.yml`: 게시 + 메일
+- `issues/`: 호별 원본 / `state/seen.json`: 중복 방지
 
-## 최초 설정 (사용자가 직접)
-1. GitHub에 **private** 저장소를 만들고 이 폴더를 push한다.
-2. Settings → Secrets and variables → Actions에 `ANTHROPIC_API_KEY`를 등록한다.
-3. Settings → Pages → Source를 **GitHub Actions**로 바꾼다.
-4. Actions 탭에서 `weekly-newsletter`를 수동 실행해 1호를 확인한다.
+## 설정 (한 번)
+- Settings → Pages → Source: GitHub Actions
+- Secrets: `MAIL_USERNAME`(Gmail 주소), `MAIL_PASSWORD`(Gmail 앱 비밀번호)
+- 테스트: Actions → publish-newsletter → Run workflow (기본값은 pys2019@gmail.com에만 발송)
 
 ## 주의
-- 내부 공유용이다. private 저장소의 Pages는 GitHub Team/Enterprise 플랜이 필요하다. 해당 플랜이 아니면 Pages 대신 `issues/*.md`를 저장소에서 읽거나, `deploy` 잡을 지우고 이메일 발송 단계를 붙인다.
-- 자동 생성본은 사람이 검토한 뒤 공유한다. 수치 조건 누락 여부를 확인한다.
+- 저장소가 public이면 `issues/` 원문과 Pages가 누구에게나 보인다. 내부용이면 private로 바꾼다. 이 경우 일반 플랜에서는 Pages가 막힐 수 있다.
+- push 즉시 메일이 나가므로, 검토가 필요하면 예약 작업이 push 전에 멈추도록 지침을 바꾼다.
