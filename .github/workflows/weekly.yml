@@ -58,6 +58,23 @@ jobs:
     if: needs.build.outputs.issue != '' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - name: 메일 본문 만들기
+        env:
+          ISSUE: ${{ needs.build.outputs.issue }}
+        run: |
+          {
+            echo "이번 주 SK·GS AIDC 이슈가 올라왔습니다. (내부 공유용)"
+            echo
+            echo "읽기: https://pys2019.github.io/SKGSNEWs/issues/${ISSUE}.html"
+            echo "전체 목록: https://pys2019.github.io/SKGSNEWs/"
+            echo "원문(저장소): https://github.com/pys2019/SKGSNEWs/blob/main/issues/${ISSUE}/newsletter.md"
+            if [ -f "issues/${ISSUE}/usage.md" ]; then
+              echo
+              echo "----"
+              cat "issues/${ISSUE}/usage.md"
+            fi
+          } > body.txt
       - uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -68,9 +85,4 @@ jobs:
           subject: "${{ github.event_name == 'workflow_dispatch' && '[테스트] ' || '' }}[내부] 주간 SK·GS AIDC 이슈 ${{ needs.build.outputs.issue }}"
           to: ${{ (github.event_name == 'workflow_dispatch' && inputs.test_only) && 'pys2019@gmail.com' || 'yespark@posco.com,pys2019@gmail.com' }}
           from: 주간 SK·GS AIDC 이슈 <${{ secrets.MAIL_USERNAME }}>
-          body: |
-            이번 주 SK·GS AIDC 이슈가 올라왔습니다. (내부 공유용)
-
-            읽기: https://pys2019.github.io/SKGSNEWs/issues/${{ needs.build.outputs.issue }}.html
-            전체 목록: https://pys2019.github.io/SKGSNEWs/
-            원문(저장소): https://github.com/pys2019/SKGSNEWs/blob/main/issues/${{ needs.build.outputs.issue }}/newsletter.md
+          body: file://body.txt
